@@ -11,20 +11,21 @@ import static com.codeborne.selenide.Configuration.*;
 
 public class SelenideTestBuilder {
     public SelenideTestBuilder() {
-        baseUrl = " http://the-internet.herokuapp.com";
         ChromeOptions options = new ChromeOptions();
         options.addArguments("start-maximized");
         Configuration.browserCapabilities = options;
         Configuration.browserSize = null;
         timeout=10000;
         holdBrowserOpen=false;
-        screenshots=true;
         reopenBrowserOnFail = true;
         fastSetValue=true;
         assertionMode= AssertionMode.SOFT;
         fileDownload= FileDownloadMode.HTTPGET;
-        reportsFolder="src/main/resources/failedScreens";
         downloadsFolder="src/main/resources/images";
+
+        screenshots=true;
+        savePageSource = false;
+        reportsFolder="src/main/resources/Reports";
     }
 
     @AfterTest
